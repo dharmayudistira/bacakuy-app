@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 
-class AddReminder extends StatefulWidget {
-  static const routeName ='/add_page';
+class EditReminder extends StatefulWidget {
+  static const routeName ='/edit_page';
   static const String addHeadline = 'Reminder';
 
   @override
-  State<AddReminder> createState() => _AddReminderState();
+  State<EditReminder> createState() => _EditReminderState();
 }
 
-class _AddReminderState extends State<AddReminder> {
-  late DateTime datePick;
+class _EditReminderState extends State<EditReminder> {
   late TimeOfDay timePick;
-
 
   @override
   void initState() {
     super.initState();
-    datePick = DateTime.now();
     timePick = TimeOfDay.now();
   }
 
@@ -40,7 +37,7 @@ class _AddReminderState extends State<AddReminder> {
                 children: const [
                   SizedBox(height: 20),
                   Text(
-                    'Add Reminder',
+                    'Edit Reminder',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
@@ -81,7 +78,7 @@ class _AddReminderState extends State<AddReminder> {
                     child: TextField(
                       decoration: InputDecoration(
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.black,
@@ -112,7 +109,7 @@ class _AddReminderState extends State<AddReminder> {
                     child: TextField(
                       decoration: InputDecoration(
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.black,
@@ -170,7 +167,7 @@ class _AddReminderState extends State<AddReminder> {
                     child: TextField(
                       decoration: InputDecoration(
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.black,

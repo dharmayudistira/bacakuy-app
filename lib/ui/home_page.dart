@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage>{
   final List<Widget> _listWidget = [
     ReminderList(),
     AddReminder(),
-    SettingPage(),
+    const SettingPage(),
   ];
 
   void _onBottomNavTapped(int index) {
