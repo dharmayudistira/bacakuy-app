@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage>{
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.settings),
-      label: SettingPage.settingHeadline,
+      label: SettingPage.settingsTitle,
     ),
   ];
 
