@@ -21,7 +21,6 @@ class _ReminderListState extends State<ReminderList> {
             'Bacakuy',
           ),
         ),
-        backgroundColor: Colors.cyan,
       ),
       body: SingleChildScrollView(
         child: ListView(

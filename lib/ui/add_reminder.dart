@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AddReminder extends StatefulWidget {
-  static const routeName ='/add_page';
+  static const routeName = '/add_page';
   static const String addHeadline = 'Reminder';
 
   @override
@@ -9,14 +9,11 @@ class AddReminder extends StatefulWidget {
 }
 
 class _AddReminderState extends State<AddReminder> {
-  late DateTime datePick;
   late TimeOfDay timePick;
-
 
   @override
   void initState() {
     super.initState();
-    datePick = DateTime.now();
     timePick = TimeOfDay.now();
   }
 
@@ -29,9 +26,7 @@ class _AddReminderState extends State<AddReminder> {
             'Bacakuy',
           ),
         ),
-        backgroundColor: Colors.cyan,
       ),
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -52,17 +47,44 @@ class _AddReminderState extends State<AddReminder> {
                     style: TextStyle(fontSize: 12, color: Colors.grey),
                   ),
                   SizedBox(
-                    height: 25,
+                    height: 10,
                   ),
                 ],
               ),
-              Container(
-                height: MediaQuery.of(context).size.height-650,
-                width: MediaQuery.of(context).size.width-100,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWN2Hc90QA9GeMyJ7YTe7_Lske_gdK8RBww&usqp=CAU'),
-                      fit: BoxFit.fill),
+              Padding(
+                padding:
+                    const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    Stack(
+                      clipBehavior: Clip.none,
+                      alignment: Alignment.center,
+                      children: [
+                        Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWN2Hc90QA9GeMyJ7YTe7_Lske_gdK8RBww&usqp=CAU',
+                          width: 250,
+                          height: 250,
+                        ),
+                        Positioned(
+                          bottom: -8,
+                          right: -16,
+                          child: ElevatedButton(
+                            child: const Icon(
+                              Icons.edit,
+                              color: Colors.white,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: const CircleBorder(),
+                              padding: const EdgeInsets.all(8),
+                              primary: Colors.cyan,
+                            ),
+                            onPressed: () {},
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 25),
@@ -141,7 +163,7 @@ class _AddReminderState extends State<AddReminder> {
                     child: TextField(
                       decoration: InputDecoration(
                         contentPadding:
-                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.black,
@@ -215,20 +237,10 @@ class _AddReminderState extends State<AddReminder> {
           ),
         ),
       ),
-      floatingActionButton:
-      Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            child: const Icon(Icons.add_a_photo_outlined),
-            onPressed: () {},
-          ),
-          const SizedBox(height: 4),
-          FloatingActionButton(
-            child: const Icon(Icons.arrow_downward),
-            onPressed: () {},
-          ),
-        ],
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.arrow_downward),
+        backgroundColor: Colors.cyan,
+        onPressed: () {},
       ),
     );
   }

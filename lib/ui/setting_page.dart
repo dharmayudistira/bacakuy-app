@@ -1,5 +1,7 @@
+import 'package:bacakuy_app/provider/preferences_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 class SettingPage extends StatefulWidget {
@@ -23,25 +25,27 @@ class _SettingPageState extends State<SettingPage> {
             'Bacakuy',
           ),
         ),
-        backgroundColor: Colors.cyan,
       ),
       body: _buildSetting(context),
     );
   }
 
   Widget _buildSetting(BuildContext context) {
-    return Material(
-      child: ListTile(
-          title: const Text(
-            'Dark Mode',
-            style: TextStyle(fontFamily: 'Antiqua'),
-          ),
-          trailing: Switch.adaptive(value: isEnabled, onChanged: (value) {
-           setState(() {
-             isEnabled = value;
-           });
-          }),
-      ),
+    return Consumer<PreferencesProvider>(
+      builder: (context, provider, child){
+        return ListView(
+          children: [
+            Material(
+              child: ListTile(
+                title: Text('Dark Mode'),
+                trailing: Switch.adaptive(value: provider.isDarkTheme, onChanged: (value){
+                  provider.enableDarkTheme(value);
+                }),
+              ),
+            )
+          ],
+        );
+      }
     );
   }
 

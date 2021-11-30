@@ -36,12 +36,13 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.cyan,
       body: Center(
         child: Icon(
           Icons.access_alarm,
-          size: 150,
-          color: Colors.black,
+          size: 160,
+          color: Colors.white,
         ),
       ),
     );
