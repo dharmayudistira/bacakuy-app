@@ -5,6 +5,7 @@ import 'home_page.dart';
 
 class Splash extends StatefulWidget {
   static const routeName = '/splash';
+
   const Splash({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class _SplashState extends State<Splash> {
     var duration = const Duration(seconds: 2);
     return Timer(
       duration,
-          () {
+      () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (_) {
@@ -37,12 +38,15 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
       body: Center(
-        child: Icon(
-          Icons.access_alarm,
-          size: 160,
-          color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/logobacakuy.png', height: 450, width: 350,),
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+            )
+          ],
         ),
       ),
     );

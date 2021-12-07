@@ -21,11 +21,10 @@ class _EditReminderState extends State<EditReminder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Bacakuy',
-          ),
+        title: Text(
+          'Bacakuy',
         ),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -238,7 +237,10 @@ class _EditReminderState extends State<EditReminder> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.arrow_downward),
+        child: const Icon(
+          Icons.arrow_downward,
+          color: Colors.white,
+        ),
         backgroundColor: Colors.cyan,
         onPressed: () {},
       ),

@@ -20,11 +20,19 @@ ThemeData lightTheme = ThemeData(
     style: ElevatedButton.styleFrom(
       primary: secondaryColor,
       textStyle: TextStyle(),
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(0),
         ),
       ),
+    ),
+  ),
+  inputDecorationTheme: const InputDecorationTheme(
+    border: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.black)
+    ),
+    labelStyle: TextStyle(
+        color: Colors.black,
     ),
   ),
 );
@@ -35,17 +43,25 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     selectedItemColor: darkSecondaryColor,
-    unselectedItemColor: Colors.grey,
+    unselectedItemColor: Colors.white,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      primary: secondaryColor,
+      primary: darkSecondaryColor,
       textStyle: TextStyle(),
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(0),
         ),
       ),
+    ),
+  ),
+  inputDecorationTheme: const InputDecorationTheme(
+    border: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white)
+    ),
+    labelStyle: TextStyle(
+        color: Colors.white,
     ),
   ),
 );

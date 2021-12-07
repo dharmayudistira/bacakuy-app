@@ -238,7 +238,7 @@ class _AddReminderState extends State<AddReminder> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.arrow_downward),
+        child: const Icon(Icons.arrow_downward, color: Colors.white,),
         backgroundColor: Colors.cyan,
         onPressed: () {},
       ),
