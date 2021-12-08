@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AddReminder extends StatefulWidget {
   static const routeName = '/add_page';
-  static const String addHeadline = 'Reminder';
+  static const String addHeadline = 'Article';
 
   @override
   State<AddReminder> createState() => _AddReminderState();
@@ -21,11 +21,10 @@ class _AddReminderState extends State<AddReminder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
+        title: Text(
             'Bacakuy',
           ),
-        ),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -148,35 +147,7 @@ class _AddReminderState extends State<AddReminder> {
                   SizedBox(height: 20),
                 ],
               ),
-              Column(
-                children: const [
-                  Text(
-                    "Notes",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  Padding(
-                    padding: EdgeInsets.only(right: 20, left: 20),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                          ),
-                        ),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                ],
-              ),
+              SizedBox(height: 15),
               Column(
                 children: const [
                   Text(
@@ -210,7 +181,7 @@ class _AddReminderState extends State<AddReminder> {
                 children: [
                   SizedBox(width: 120),
                   OutlineButton(
-                      child: Text('Pick your Time'),
+                      child: Icon(Icons.access_time),
                       onPressed: () async {
                         TimeOfDay? time = await showTimePicker(
                           context: context,

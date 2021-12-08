@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage>{
       label: _reminderHeadline,
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.add),
+      icon: Icon(Icons.article_outlined),
       label: AddReminder.addHeadline,
     ),
     const BottomNavigationBarItem(

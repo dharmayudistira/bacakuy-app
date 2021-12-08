@@ -147,35 +147,7 @@ class _EditReminderState extends State<EditReminder> {
                   SizedBox(height: 20),
                 ],
               ),
-              Column(
-                children: const [
-                  Text(
-                    "Notes",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                  Padding(
-                    padding: EdgeInsets.only(right: 20, left: 20),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.black,
-                          ),
-                        ),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                ],
-              ),
+              SizedBox(height: 15,),
               Column(
                 children: const [
                   Text(
@@ -207,9 +179,9 @@ class _EditReminderState extends State<EditReminder> {
               ),
               Row(
                 children: [
-                  SizedBox(width: 120),
+                  SizedBox(width: 135),
                   OutlineButton(
-                      child: Text('Pick your Time'),
+                      child: Icon(Icons.access_time),
                       onPressed: () async {
                         TimeOfDay? time = await showTimePicker(
                           context: context,

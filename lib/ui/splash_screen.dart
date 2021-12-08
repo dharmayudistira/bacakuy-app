@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'login_page.dart';
 
 class Splash extends StatefulWidget {
   static const routeName = '/splash';
@@ -20,14 +20,14 @@ class _SplashState extends State<Splash> {
   }
 
   startSplash() async {
-    var duration = const Duration(seconds: 2);
+    var duration = const Duration(seconds: 4);
     return Timer(
       duration,
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (_) {
-              return HomePage();
+              return Login();
             },
           ),
         );
@@ -42,8 +42,11 @@ class _SplashState extends State<Splash> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logobacakuy.png', height: 450, width: 350,),
-            CircularProgressIndicator(
+            Text("BACAKUY", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
+            SizedBox(height: 10),
+            Text("Yuk Majukan Literasi Bangsa", style: TextStyle(color: Colors.grey, fontSize: 20),),
+            SizedBox(height: 20),
+            const CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
             )
           ],
