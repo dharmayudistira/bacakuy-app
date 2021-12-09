@@ -48,20 +48,6 @@ class Login extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 12),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height-621),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
-                child: Text(
-                  'Skip',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
           ],
         ),
       ),
