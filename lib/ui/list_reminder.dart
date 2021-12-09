@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'add_reminder.dart';
@@ -11,15 +12,22 @@ class ReminderList extends StatefulWidget {
 }
 
 class _ReminderListState extends State<ReminderList> {
+  int index = 0;
+  List<String> cardList = [
+    "Makin aku banyak membaca, makin banyak aku berpikir; makin banyak aku belajar, makin sadar bahwa aku tidak mengetahui apa pun.",
+    "Ilmu itu ada di mana-mana, pengetahuan di mana-mana tersebar, kalau kita bersedia membaca, dan bersedia mendengar.",
+    "Membaca adalah napas hidup dan jembatan emas ke masa depan.Membaca adalah napas hidup dan jembatan emas ke masa depan."
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Bacakuy',
-          ),
+        title: Text(
+          'Bacakuy',
         ),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
       ),
       body: SingleChildScrollView(
         child: Stack(
@@ -33,12 +41,33 @@ class _ReminderListState extends State<ReminderList> {
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.left,
                 ),
-                Text("Yuk periksa agenda mu hari ini!", style: TextStyle(fontSize: 15)),
+                Text("Yuk periksa agenda mu hari ini!",
+                    style: TextStyle(fontSize: 15)),
                 SizedBox(
                   height: 250,
                   width: 250,
                   child: Image.asset("assets/images/selecting.png"),
                 ),
+                Container(
+                  child: Center(
+                    child: CarouselSlider(
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 4),
+                        autoPlayAnimationDuration: Duration(milliseconds: 3000),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        pauseAutoPlayOnTouch: true,
+                        enlargeCenterPage: true,
+                        viewportFraction: 0.8,
+                        aspectRatio: 4,
+                      ),
+                      items: cardList.map((item) {
+                        return ItemCard(item);
+                      }).toList(),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 13,),
                 listReminder(),
               ],
             ),
@@ -67,7 +96,7 @@ class _ReminderListState extends State<ReminderList> {
           topLeft: Radius.circular(25),
           topRight: Radius.circular(25),
         ),
-        color: Colors.cyan,
+        color: Colors.grey,
       ),
       child: ListView(
         shrinkWrap: true,
@@ -228,6 +257,29 @@ class _ReminderListState extends State<ReminderList> {
             height: 10,
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ItemCard extends StatelessWidget {
+  final String title;
+
+  const ItemCard(this.title, {Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.7,
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey,
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.4), blurRadius: 2),
+        ],
+      ),
+      child: Center(
+        child: Text(title, textAlign: TextAlign.center,),
       ),
     );
   }
